@@ -17,13 +17,13 @@
 
 #slidenum {
   position: absolute;
+  display: none;
   left: 0px;
   bottom: 0px;
   z-index: 2;
   background-color:black;
   margin: 1em;
   color: white;
-  opacity: 0.5;
 }
 
 #slides {
@@ -51,7 +51,7 @@
   padding-top: 1em;
   padding-bottom: 1em;
   background-color: black;
-  opacity: 0.60;
+  opacity: 0.50;
   z-index: 2;
 }
 

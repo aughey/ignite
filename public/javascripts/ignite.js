@@ -4,6 +4,7 @@ var currentSlide = 0;
 var timePerSlide = 15;
 var currentTime = timePerSlide;
 var numSlides = 20;
+var timerRunning = false;
 
 function timerStep(arg) {
   var curtime = (arg / 100.0) * timePerSlide;
@@ -11,10 +12,12 @@ function timerStep(arg) {
 }
 
 function slideUrl(index) {
-  return "/sample/slides/Slide" + index + ".PNG";
+  return "slides/Slide" + index + ".PNG";
 }
 
 function nextSlide() {
+  timerRunning = false;
+
   if(currentSlide == numSlides) {
     return;
   }
@@ -61,6 +64,16 @@ easing: 'linear',
 step: timerStep,
 complete: nextSlide
 });
+  timerRunning = true;
+}
+
+function toggleStop() {
+  if(timerRunning) {
+    $('#complete').stop();
+    timerRunning = false;
+  } else {
+    startTimer();
+  }
 }
 
 function start()
@@ -71,6 +84,7 @@ function start()
 
 function initialize() {
   $('#clicktostart').click(start);
+  $('.slide').click(toggleStop);
   currentSlide = 1;
   loadSlide(currentSlide);
 }
