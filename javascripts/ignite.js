@@ -1,7 +1,7 @@
 /* Ignite javascript code */
 
 var currentSlide = 0;
-var timePerSlide = 15;
+var timePerSlide = 5;
 var currentTime = timePerSlide;
 var numSlides = 20;
 var timerRunning = false;
@@ -18,9 +18,11 @@ function slideUrl(index) {
 function nextSlide() {
   timerRunning = false;
 
-  if(currentSlide == numSlides) {
+  if(currentSlide >= numSlides) {
+    initialize();
     return;
   }
+
   currentSlide = currentSlide + 1;
 
   loadSlide(currentSlide);
@@ -83,6 +85,7 @@ function start()
 }
 
 function initialize() {
+  $('#clicktostart').show();
   $('#clicktostart').click(start);
   $('.slide').click(toggleStop);
   currentSlide = 1;
