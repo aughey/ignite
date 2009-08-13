@@ -1,7 +1,7 @@
 /* Ignite javascript code */
 
 var currentSlide = 0;
-var timePerSlide = 5;
+var timePerSlide = 15;
 var currentTime = timePerSlide;
 var numSlides = 20;
 var timerRunning = false;
