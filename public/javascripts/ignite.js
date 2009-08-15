@@ -47,10 +47,6 @@ function loadSlide(num) {
   preload.css('z-index',0);
   current.css('z-index',1);
 
-  current.css('right','');
-  current.css('bottom','');
-  current.css('left','0px');
-  current.css('top','0px');
   current.css('width','100%');
   current.css('height','100%');
 
@@ -62,6 +58,8 @@ function loadSlide(num) {
 function startTimer() {
   $('#slidenum').html(currentSlide);
   started = true;
+
+  $('#slides').css('cursor','none');
 
   var bar = $('#complete');
   bar.width('0%');
@@ -79,6 +77,7 @@ function toggleStop() {
   if(started == false) {
     start();
   } else if(timerRunning) {
+    $('#slides').css('cursor','default');
     $('#complete').stop();
     timerRunning = false;
   } else {
@@ -93,6 +92,8 @@ function start()
 }
 
 function initialize() {
+  $('#slides').css('cursor','default');
+
   $('#clicktostart').show();
   $('#clicktostart').click(start);
   $('.slide').click(toggleStop);
