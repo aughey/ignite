@@ -7,7 +7,7 @@ var numSlides = 20;
 var timerRunning = false;
 
 function timerStep(arg) {
-  var curtime = (arg / 100.0) * timePerSlide;
+  var curtime = timePerSlide - (arg / 100.0) * timePerSlide;
   $('#countdown center').html(Math.floor(curtime));
 }
 
