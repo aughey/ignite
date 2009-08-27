@@ -16,6 +16,11 @@ $.fn.delay = function(time, callback){
 function timerStep(arg) {
   var curtime = timePerSlide - (arg / 100.0) * timePerSlide;
   $('#countdown').html(Math.ceil(curtime));
+  if(curtime <= 5) {
+    $('#countdown').css('color','#ffbdbd');
+  } else {
+    $('#countdown').css('color','white');
+  }
 }
 
 function slideUrl(index) {
