@@ -54,16 +54,31 @@ function loadSlide(num) {
   current.attr('src',slideUrl(num));
   preload.attr('src',slideUrl(num+1));
 
-  if(false) {
-    preload.width('1px');
-    preload.height('1px');
+//  if(false) {
+ //   preload.width('1px');
+  //  preload.height('1px');
+//
+ //   current.width('100%');
+  //  current.height('100%');
+//  } else {
+//    preload.css('z-index',0).hide();
+ //   current.css('z-index',1).show();
+//  }
 
-    current.width('100%');
-    current.height('100%');
-  } else {
-    preload.css('z-index',0).hide();
-    current.css('z-index',1).show();
-  }
+  current.css('z-index',1);
+  
+
+  current.css('right','');
+  current.css('bottom','');
+  current.css('left','0px');
+  current.css('top','0px');
+  current.css('width','100%');
+  current.css('height','100%');
+
+  // If you change z-index to 2 here there will be a preview slide shown.
+  preload.css('z-index',0);
+  preload.width('20%');
+  preload.height('15%');
 
   $('#slidecount').html(String(num) + "/" + String(numSlides));
 }
