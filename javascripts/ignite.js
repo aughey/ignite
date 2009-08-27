@@ -71,6 +71,8 @@ function loadSlide(num) {
 function startTimer() {
   $('#slidenum').html(currentSlide);
 
+  $('#slides').css('cursor','none');
+
   var bar = $('#complete');
   bar.width('0%');
   bar.animate( { width:"100%" }, 
@@ -87,6 +89,7 @@ function toggleStop() {
   if(timerRunning) {
     $('#complete').stop();
     timerRunning = false;
+    $('#slides').css('cursor','default');
   } else {
     startTimer();
   }
