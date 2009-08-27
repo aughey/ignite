@@ -8,7 +8,7 @@ var timerRunning = false;
 
 function timerStep(arg) {
   var curtime = timePerSlide - (arg / 100.0) * timePerSlide;
-  $('#countdown center').html(Math.floor(curtime));
+  $('#countdown').html(Math.ceil(curtime));
 }
 
 function slideUrl(index) {
@@ -24,6 +24,7 @@ function nextSlide() {
   }
 
   currentSlide = currentSlide + 1;
+
 
   loadSlide(currentSlide);
   startTimer();
@@ -52,6 +53,8 @@ function loadSlide(num) {
     preload.css('z-index',0).hide();
     current.css('z-index',1).show();
   }
+
+  $('#slidecount').html(String(num) + "/" + String(numSlides));
 }
 
 function startTimer() {
