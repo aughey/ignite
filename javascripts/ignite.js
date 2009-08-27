@@ -6,6 +6,13 @@ var currentTime = timePerSlide;
 var numSlides = 20;
 var timerRunning = false;
 
+$.fn.delay = function(time, callback){
+    // Empty function:
+    jQuery.fx.step.delay = function(){};
+    // Return meaningless animation, (will be added to queue)
+    return this.animate({delay:1}, time, callback);
+}
+
 function timerStep(arg) {
   var curtime = timePerSlide - (arg / 100.0) * timePerSlide;
   $('#countdown').html(Math.ceil(curtime));
@@ -24,7 +31,6 @@ function nextSlide() {
   }
 
   currentSlide = currentSlide + 1;
-
 
   loadSlide(currentSlide);
   startTimer();
